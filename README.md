@@ -9,49 +9,65 @@
 public class Product
 {
     public int Id { get; set; }
-    public string Name { get; set; }
+    public string Description { get; set; }
 }
 
-using MyResult;
-using System;
+using MyResults;
 
-var prod = new Product
+namespace ConsoleApp1
 {
-    Id = 1,
-    Name = "Test Product"
-};
+    public class Class1
+    {
+        public static void Main()
+        {
+            Product prod = new Product
+            {
+                Id = 1,
+                Description = "A product"
+            };
 
-var dataResult = DataResult<Product>(prod, true, "Product found");
+            var dataResult = new DataResult<Product>(prod, true, "Product found");
 
-if (dataResult.Success)
-{
-    Console.WriteLine(dataResult.Message);
-    Console.WriteLine($"Product Id: {dataResult.Data.Id}");
-    Console.WriteLine($"Product Name: {dataResult.Data.Name}");
+            if (dataResult.Success)
+            {
+                Console.WriteLine(dataResult.Message);
+                Console.WriteLine($"Product ID: {dataResult.Data.Id}");
+                Console.WriteLine($"Product Description: {dataResult.Data.Description}");
+            }
+            Console.ReadLine();
+        }
+    }
 }
-else
-{
-    Console.WriteLine(dataResult.Message);
-}
+
 
 ```
 
 ## Usage Error
 
 ```
-using MyResult;
-using System;
+using MyResults;
 
-var dataResult = new DataResult<Product>(null, false, "Product not found");
+namespace ConsoleApp1
+{
+    public class Class1
+    {
+        public static void Main() { 
 
-if (dataResult.Success)
-{
-    Console.WriteLine(dataResult.Message);
-    Console.WriteLine($"Product Id: {dataResult.Data.Id}");
-    Console.WriteLine($"Product Name: {dataResult.Data.Name}");
+            var dataResult = new DataResult<Product>(new Product(), false, "Product not found");
+
+            if (dataResult.Success)
+            {
+                Console.WriteLine(dataResult.Message);
+                Console.WriteLine($"Product ID: {dataResult.Data.Id}");
+                Console.WriteLine($"Product Description: {dataResult.Data.Description}");
+            }
+            else
+            {
+                Console.WriteLine("Error: " + dataResult.Message);
+            }
+                Console.ReadLine();
+        }
+    }
 }
-else
-{
-    Console.WriteLine(dataResult.Message);
-}
+
 ```
