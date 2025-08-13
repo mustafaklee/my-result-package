@@ -3,15 +3,16 @@
 ## Basic result nuget package structure for APIs
 
 ## Structure
-MyResultPackage, API’lerde standart ve tutarlı sonuç (result) döndürme yapısını kolaylaştırmak için geliştirilmiş bir NuGet paketidir.
-Bu paket ile başarı, hata, veri ve bunların mesaj kombinasyonlarını tip güvenli ve okunabilir bir şekilde yönetebilirsiniz.
+MyResultPackage is a NuGet package designed to simplify creating a standardized and consistent result structure for APIs.  
+With this package, you can manage success, error, data, and their message combinations in a type-safe and readable way.
 
-| Senaryo | Kullanılacak Sınıf |
-|---------|--------------------|
-| Sadece hata durumu ve mesaj döndürülecekse | `ErrorResult` |
-| Sadece başarı durumu ve mesaj döndürülecekse | `SuccessResult` |
-| Veri + hata durumu + mesaj döndürülecekse | `ErrorDataResult<T>` |
-| Veri + başarı durumu + mesaj döndürülecekse | `SuccessDataResult<T>` |
+| Scenario | Class to Use |
+|----------|--------------|
+| Return only an error state with a message | `ErrorResult` |
+| Return only a success state with a message | `SuccessResult` |
+| Return data + error state + message | `ErrorDataResult<T>` |
+| Return data + success state + message | `SuccessDataResult<T>` |
+
 
 
 
