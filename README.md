@@ -2,7 +2,10 @@
 
 ## Basic result nuget package structure for APIs
 
-
+## Installation
+```
+dotnet add package MyResults --version 1.0.0
+```
 ## Usage Success
 
 ```
